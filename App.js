@@ -1,20 +1,25 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { Image, Text, TextInput, View } from "react-native";
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Adib Firmansyah ganteng</Text>
-      <StatusBar style="auto" />
+    <View>
+      <View style={{ width: 80, height: 80, backgroundColor: "blue" }} />
+      <Text>Adib</Text>
+      <Text>Firmansyah</Text>
+      <Ganteng />
+      <Photo />
+      <TextInput style={{ borderWidth: 1 }} />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const Ganteng = () => {
+  return <Text>Ganteng Banget</Text>;
+};
+
+const Photo = () => {
+  return <Image source={{ uri: "https://source.unsplash.com/1200x400?programmer" }} style={{ width: 100, height: 100 }} />;
+};
+
+export default App;
