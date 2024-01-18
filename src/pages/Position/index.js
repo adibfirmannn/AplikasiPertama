@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import keranjang from "./shopping-cart.png";
+import keranjang from "../../assets/icons/shopping-cart.png";
 
-const PositionReactNative = () => {
+const Position = () => {
   return (
     <View style={styles.container}>
       <Text>Materi Absolute</Text>
@@ -15,7 +15,7 @@ const PositionReactNative = () => {
   );
 };
 
-export default PositionReactNative;
+export default Position;
 
 const styles = StyleSheet.create({
   container: { marginTop: 50, alignItems: "center" },

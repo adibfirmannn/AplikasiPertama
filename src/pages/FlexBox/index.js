@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Text, View, Image } from "react-native";
-import github from "./github.png";
+import github from "../../assets/image/github.png";
 
-class Flexbox extends Component {
+class FlexBox extends Component {
   render() {
     return (
       <View>
@@ -30,4 +30,4 @@ class Flexbox extends Component {
   }
 }
 
-export default Flexbox;
+export default FlexBox;
