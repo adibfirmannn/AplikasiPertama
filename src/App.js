@@ -6,18 +6,18 @@ import FlexBox from "./pages/FlexBox";
 import Position from "./pages/Position";
 
 const App = () => {
-  const [isShow, SetIsShow] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      SetIsShow(false);
-    }, 20000);
-  }, []);
+  // const [isShow, SetIsShow] = useState(true);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     SetIsShow(false);
+  //   }, 6000);
+  // }, []);
   return (
     <View>
       <ScrollView>
         {/* <SampleComponent />
         <StylingComponent /> */}
-        {isShow && <FlexBox />}
+        <FlexBox />
         {/* <Position /> */}
       </ScrollView>
     </View>
