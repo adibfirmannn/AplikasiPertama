@@ -3,7 +3,33 @@ import { Text, View, Image } from "react-native";
 import github from "../../assets/image/github.png";
 
 class FlexBox extends Component {
+  constructor(props) {
+    super(props);
+    console.log("ini constructor");
+    this.state = {
+      follower: 200,
+    };
+  }
+
+  componentDidMount() {
+    console.log("ini componentdidmount");
+    setTimeout(() => {
+      this.setState({
+        follower: 400,
+      });
+    }, 2000);
+  }
+
+  componentDidUpdate() {
+    console.log("ini componentdidupdate");
+  }
+
+  componentWillUnmount() {
+    console.log("ini componentunmount");
+  }
+
   render() {
+    console.log("ini render");
     return (
       <View>
         <View style={{ flexDirection: "row", backgroundColor: "#c8d6e5", alignItems: "center", justifyContent: "space-between" }}>
@@ -16,7 +42,7 @@ class FlexBox extends Component {
           <Image source={github} style={{ width: 50, height: 50, borderRadius: 30 }} />
           <View style={{ justifyContent: "center", marginLeft: 10 }}>
             <Text style={{ fontSize: 16, fontWeight: "bold" }}>Muhammad Adib Firmansyah</Text>
-            <Text>Full Stack Developer</Text>
+            <Text>{this.state.follower} Follower</Text>
           </View>
         </View>
         <View style={{ flexDirection: "row", justifyContent: "space-around", marginTop: 20 }}>
