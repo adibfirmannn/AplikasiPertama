@@ -10,6 +10,7 @@ import Communication from "./pages/Communication";
 import BasicJavascript from "./pages/BasicJavascript";
 import ReactNativeSvg from "./pages/ReactNativeSvg";
 import CallAPIVanilla from "./pages/CallAPIVanilla";
+import CallAPIAxios from "./pages/CallAPIAxios";
 
 const App = () => {
   // const [isShow, SetIsShow] = useState(true);
@@ -30,7 +31,8 @@ const App = () => {
         {/* <Communication /> */}
         {/* <BasicJavascript /> */}
         {/* <ReactNativeSvg /> */}
-        <CallAPIVanilla />
+        {/* <CallAPIVanilla /> */}
+        <CallAPIAxios />
       </ScrollView>
     </View>
   );
