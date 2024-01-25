@@ -11,6 +11,18 @@
       "name": "Muhammad Adib Firmansyah ",
       "email": "adibfirmansyah27@gmail.com",
       "bidang": "Back End developer "
+    },
+    {
+      "id": "3ead",
+      "name": "Dito aditya",
+      "email": "Dito@gmail.com",
+      "bidang": "Programmer"
+    },
+    {
+      "id": "b7f3",
+      "name": "Randy",
+      "email": "randy@gmail.com",
+      "bidang": "Front end developer"
     }
   ]
 }
