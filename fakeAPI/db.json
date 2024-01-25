@@ -1,35 +1,16 @@
 {
-  "posts": [
+  "users": [
     {
       "id": "1",
-      "title": "a title"
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "bidang": "Mobile Dev"
     },
     {
-      "id": "2",
-      "title": "another title"
-    },
-    {
-      "id": "60ee",
-      "title": "adib firmansyah"
-    },
-    {
-      "id": "3a0e",
-      "title": "dito aditya"
+      "id": "0967",
+      "name": "Muhammad Adib Firmansyah ",
+      "email": "adibfirmansyah27@gmail.com",
+      "bidang": "Back End developer "
     }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
-    },
-    {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
