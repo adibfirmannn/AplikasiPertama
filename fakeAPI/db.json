@@ -1,28 +1,28 @@
 {
   "users": [
     {
-      "name": "Admin",
-      "email": "admin@gmail.com",
-      "bidang": "Mobile Dev",
-      "id": "1"
-    },
-    {
+      "id": "46ab",
       "name": "Muhammad Adib Firmansyah ",
       "email": "adibfirmansyah27@gmail.com",
-      "bidang": "Project Manager",
-      "id": "0967"
+      "bidang": "Mobil dev"
     },
     {
-      "id": "3ead",
-      "name": "Dito aditya",
-      "email": "Dito@gmail.com",
-      "bidang": "Programmer"
+      "id": "d68f",
+      "name": "Admin",
+      "email": "admin@genius.com",
+      "bidang": "administrator "
     },
     {
-      "id": "b7f3",
-      "name": "Randy",
-      "email": "randy@gmail.com",
-      "bidang": "Front end developer"
+      "id": "f21e",
+      "name": "Dito",
+      "email": "dito@gmail.com",
+      "bidang": "back end developer"
+    },
+    {
+      "id": "8113",
+      "name": "Randy denis",
+      "email": "randi@gmail.com",
+      "bidang": "database engginering "
     }
   ]
 }

@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View, Image, TouchableOpacity } from "react-native";
+import { Button, StyleSheet, Text, TextInput, View, Image, TouchableOpacity, Alert } from "react-native";
 
-const Item = ({ name, email, bidang, onPress }) => {
+const Item = ({ name, email, bidang, onPress, onDelete }) => {
   return (
     <View style={styles.itemContainer}>
       <TouchableOpacity onPress={onPress}>
@@ -13,7 +13,11 @@ const Item = ({ name, email, bidang, onPress }) => {
         <Text style={styles.descEmail}>{email}</Text>
         <Text style={styles.descBidang}>{bidang}</Text>
       </View>
-      <Text style={styles.delete}>X</Text>
+      <TouchableOpacity>
+        <Text style={styles.delete} onPress={onDelete}>
+          X
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -64,6 +68,14 @@ const LocalAPI = () => {
     });
   };
 
+  const deleteData = (data) => {
+    // SetSelectId(data.id);
+    axios.delete(`http://192.168.43.237:3000/users/${data.id}`).then((res) => {
+      console.log("res ", res);
+      getData();
+    });
+  };
+
   const selectItem = (item) => {
     console.log("select item ", item);
     SetSelectId(item.id);
@@ -82,7 +94,21 @@ const LocalAPI = () => {
       <Button title={button} onPress={submit} />
       <View style={styles.line} />
       {users.map((user) => {
-        return <Item key={user.id} name={user.name} email={user.email} bidang={user.bidang} onPress={() => selectItem(user)} />;
+        return (
+          <Item
+            key={user.id}
+            name={user.name}
+            email={user.email}
+            bidang={user.bidang}
+            onPress={() => selectItem(user)}
+            onDelete={() =>
+              Alert.alert("Peringatan", "Anda Yakin Ingin Menghapus User Ini?", [
+                { text: "Tidak", onPress: console.log("button tidak") },
+                { text: "Ya", onPress: () => deleteData(user) },
+              ])
+            }
+          />
+        );
       })}
     </View>
   );
