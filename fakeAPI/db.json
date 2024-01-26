@@ -1,16 +1,16 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "admin",
+      "name": "Admin",
       "email": "admin@gmail.com",
-      "bidang": "Mobile Dev"
+      "bidang": "Mobile Dev",
+      "id": "1"
     },
     {
-      "id": "0967",
       "name": "Muhammad Adib Firmansyah ",
       "email": "adibfirmansyah27@gmail.com",
-      "bidang": "Back End developer "
+      "bidang": "Project Manager",
+      "id": "0967"
     },
     {
       "id": "3ead",

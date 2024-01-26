@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View, Image } from "react-native";
+import { Button, StyleSheet, Text, TextInput, View, Image, TouchableOpacity } from "react-native";
 
-const Item = ({ name, email, bidang }) => {
+const Item = ({ name, email, bidang, onPress }) => {
   return (
     <View style={styles.itemContainer}>
-      <Image source={{ uri: `https://source.unsplash.com/100x100?${bidang}` }} style={styles.avatar} />
+      <TouchableOpacity onPress={onPress}>
+        <Image source={{ uri: `https://source.unsplash.com/100x100?${bidang}` }} style={styles.avatar} />
+      </TouchableOpacity>
       <View style={styles.desc}>
         <Text style={styles.descName}>{name}</Text>
         <Text style={styles.descEmail}>{email}</Text>
@@ -21,6 +23,8 @@ const LocalAPI = () => {
   const [email, setEmail] = useState("");
   const [bidang, setBidang] = useState("");
   const [users, setUsers] = useState([]);
+  const [button, setButton] = useState("Simpan");
+  const [selectId, SetSelectId] = useState();
 
   // aplikasi dibuka langsung memanggil function getData
   useEffect(() => {
@@ -33,14 +37,24 @@ const LocalAPI = () => {
       email,
       bidang,
     };
-    // console.log("data before send", data);
-    axios.post("http://192.168.43.237:3000/users", data).then((res) => {
-      console.log("res ", res);
-      setName("");
-      setEmail("");
-      setBidang("");
-      getData();
-    });
+    if (button === "Simpan") {
+      axios.post("http://192.168.43.237:3000/users", data).then((res) => {
+        console.log("res ", res);
+        setName("");
+        setEmail("");
+        setBidang("");
+        getData();
+      });
+    } else {
+      axios.put(`http://192.168.43.237:3000/users/${selectId}`, data).then((res) => {
+        console.log("res ", res);
+        setName("");
+        setEmail("");
+        setBidang("");
+        getData();
+        setButton("Simpan");
+      });
+    }
   };
 
   const getData = () => {
@@ -49,6 +63,15 @@ const LocalAPI = () => {
       setUsers(res.data);
     });
   };
+
+  const selectItem = (item) => {
+    console.log("select item ", item);
+    SetSelectId(item.id);
+    setName(item.name);
+    setEmail(item.email);
+    setBidang(item.bidang);
+    setButton("Update");
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.textTitle}>Local API JSON Server</Text>
@@ -56,10 +79,10 @@ const LocalAPI = () => {
       <TextInput placeholder="Nama Lengkap" style={styles.input} value={name} onChangeText={(value) => setName(value)} />
       <TextInput placeholder="Email" style={styles.input} value={email} onChangeText={(value) => setEmail(value)} />
       <TextInput placeholder="Bidang" style={styles.input} value={bidang} onChangeText={(value) => setBidang(value)} />
-      <Button title="Simpan" onPress={submit} />
+      <Button title={button} onPress={submit} />
       <View style={styles.line} />
       {users.map((user) => {
-        return <Item key={user.id} name={user.name} email={user.email} bidang={user.bidang} />;
+        return <Item key={user.id} name={user.name} email={user.email} bidang={user.bidang} onPress={() => selectItem(user)} />;
       })}
     </View>
   );
